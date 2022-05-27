@@ -81,6 +81,11 @@ resource "vsphere_virtual_machine" "k8s_node" {
         ipv4_netmask = "24"
       }
 
+      network_interface {
+        ipv4_address = element(var.vm_nfs_ip, count.index)
+        ipv4_netmask = "24"
+      }
+
       ipv4_gateway    = var.gateway
       dns_server_list = [var.dns_list]
       dns_suffix_list = [var.dns_search]

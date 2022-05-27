@@ -48,6 +48,11 @@ variable "vm_ip" {
   type        = list(string)
 }
 
+variable "vm_nfs_ip" {
+  description = "K8s nodes NFS ip list"
+  type        = list(string)
+}
+
 variable "gateway" {
   description = "default gateway"
 }
