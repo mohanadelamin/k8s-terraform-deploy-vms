@@ -41,6 +41,9 @@ resource "vsphere_virtual_machine" "k8s_node" {
   resource_pool_id = data.vsphere_compute_cluster.cl.resource_pool_id
   datastore_id     = data.vsphere_datastore.ds.id
 
+  wait_for_guest_net_timeout = 0
+  wait_for_guest_ip_timeout  = 0
+  
   num_cpus  = 4
   memory    = 16384
   guest_id  = data.vsphere_virtual_machine.template.guest_id
